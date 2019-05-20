@@ -1,0 +1,42 @@
+<div class="jumbotron text-center">
+    <img id="burger-icon" class="mx-auto" src="/images/burger.png">
+    <h1 class="display-4">Eat-the-Burger</h1>
+    <hr class="my-4">
+
+    <div id="burger-content">
+        <!-- Dynamic Content Here -->
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4 m-0 p-0">
+                {{#each burger}}
+                {{#unless devoured}}
+                <div class="row mb-2">
+                    <div class="col-sm-9 p-0 m-0">
+                        <p id="added-burger" class="burger m-0 mr-2 float-right p-2">{{burger_name}}</p>
+                    </div>
+                    <div class="col-sm-3 m-0 p-0 text-left">
+                        <button class="devour-btn btn btn-danger m-0" data-id="{{id}}">Devour</button>
+                    </div>
+                </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+            <div class="col-sm-3 p-0 m-0">
+                {{#each burger}}
+                {{#if devoured}}
+                <p id="devoured-burger" class="burger m-0 mb-2 p-2">{{burger_name}}</p>
+                {{/if}}
+                {{/each}}
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+
+    <div id="main-content" class="mt-3 mx-auto">
+        <p>Enter a burger that you want to eat!</p>
+        <input class="form-control mb-3" id="burger-text" placeholder="Enter Burger">
+        <a class="btn btn-primary btn-lg" id="add-burger-button">Add Burger</a>
+        <a class="btn btn-primary btn-lg" id="del-burger-button">Clean Up</a>
+    </div>
+
+</div>
